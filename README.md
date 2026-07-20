@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="YOUR_VERCEL_LINK">🌐 Live Demo</a>
+  <a href="https://dma-xi-beige.vercel.app/">🌐 Live Demo</a>
 </p>
 
 ---
