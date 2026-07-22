@@ -34,21 +34,18 @@ const colorClasses = {
   blue: {
     bg: "bg-blue-600",
     border: "border-blue-500",
-    text: "text-blue-400",
     button: "bg-blue-600 hover:bg-blue-700",
     glow: "bg-blue-600",
   },
   pink: {
     bg: "bg-pink-600",
     border: "border-pink-500",
-    text: "text-pink-400",
     button: "bg-pink-600 hover:bg-pink-700",
     glow: "bg-pink-600",
   },
   green: {
     bg: "bg-green-600",
     border: "border-green-500",
-    text: "text-green-400",
     button: "bg-green-600 hover:bg-green-700",
     glow: "bg-green-600",
   },
@@ -92,7 +89,6 @@ export default function TopFreelancers() {
         className="relative z-10 text-center mb-12"
       >
         <div className="flex justify-center items-center gap-2">
-
           <Sparkles className="text-yellow-400" size={24} />
 
           <h2 className="text-4xl font-bold">
@@ -100,13 +96,11 @@ export default function TopFreelancers() {
           </h2>
 
           <Sparkles className="text-yellow-400" size={24} />
-
         </div>
 
         <p className="text-gray-400 mt-3">
           Connect with talented students and get your work done.
         </p>
-
       </motion.div>
 
       {/* Cards */}
@@ -114,7 +108,6 @@ export default function TopFreelancers() {
       <div className="relative z-10 grid md:grid-cols-3 gap-8">
 
         {freelancers.map((freelancer, index) => {
-
           const colors =
             colorClasses[
               freelancer.color as keyof typeof colorClasses
@@ -143,7 +136,7 @@ export default function TopFreelancers() {
                 y: -14,
                 scale: 1.03,
               }}
-              className={`group relative bg-white/10 backdrop-blur-xl border border-gray-800 rounded-3xl p-8 text-center hover:${colors.border} transition-all duration-300 overflow-hidden`}
+              className="group relative bg-white/10 backdrop-blur-xl border border-gray-800 rounded-3xl p-8 text-center hover:border-blue-500 transition-all duration-300 overflow-hidden"
             >
 
               {/* Glow */}
@@ -166,4 +159,82 @@ export default function TopFreelancers() {
                   animate={{
                     rotate: 360,
                   }}
+                  transition={{
+                    duration: 12,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                  className={`absolute inset-0 rounded-full border-2 border-dashed ${colors.border} opacity-60`}
+                />
+
+                <motion.div
+                  whileHover={{
+                    scale: 1.15,
+                  }}
+                  className={`relative w-24 h-24 rounded-full ${colors.bg} flex items-center justify-center text-3xl font-bold shadow-xl`}
+                >
+                  {freelancer.initial}
+                </motion.div>
+
+              </div>
+
+              {/* Name */}
+
+              <h3 className="text-2xl font-bold mt-5">
+                {freelancer.name}
+              </h3>
+
+              <p className="text-gray-400 mt-2">
+                {freelancer.role}
+              </p>
+
+              {/* Rating */}
+
+              <motion.div
+                whileHover={{
+                  scale: 1.1,
+                }}
+                className="flex justify-center items-center gap-2 mt-4 text-yellow-400"
+              >
+
+                <motion.div
+                  animate={{
+                    rotate: [0, 15, -15, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                  }}
+                >
+                  <Star size={18} fill="currentColor" />
+                </motion.div>
+
+                {freelancer.rating}
+
+              </motion.div>
+
+              {/* Button */}
+
+              <motion.button
+                whileHover={{
+                  scale: 1.05,
+                }}
+                whileTap={{
+                  scale: 0.95,
+                }}
+                className={`mt-6 ${colors.button} px-6 py-3 rounded-xl transition flex items-center gap-2 mx-auto`}
+              >
+                Hire Now
+                <ArrowUpRight size={18} />
+              </motion.button>
+
+            </motion.div>
+          );
+        })}
+
+      </div>
+
+    </section>
+  );
+}
                  
