@@ -1,6 +1,6 @@
 "use client";
 
-import { Star, Sparkles, ArrowUpRight } from "lucide-react";
+import { Star } from "lucide-react";
 import { motion } from "framer-motion";
 
 const freelancers = [
@@ -9,228 +9,81 @@ const freelancers = [
     role: "React Developer",
     rating: "4.9",
     initial: "D",
-    color: "blue",
-    badge: "Top Rated",
+    color: "bg-blue-600",
   },
   {
     name: "Aditi",
     role: "Graphic Designer",
     rating: "4.8",
     initial: "A",
-    color: "pink",
-    badge: "Creative Pro",
+    color: "bg-pink-600",
   },
   {
     name: "Rahul",
     role: "Data Analyst",
     rating: "5.0",
     initial: "R",
-    color: "green",
-    badge: "Expert",
+    color: "bg-green-600",
   },
 ];
 
-const colorClasses = {
-  blue: {
-    bg: "bg-blue-600",
-    border: "border-blue-500",
-    button: "bg-blue-600 hover:bg-blue-700",
-    glow: "bg-blue-600",
-  },
-  pink: {
-    bg: "bg-pink-600",
-    border: "border-pink-500",
-    button: "bg-pink-600 hover:bg-pink-700",
-    glow: "bg-pink-600",
-  },
-  green: {
-    bg: "bg-green-600",
-    border: "border-green-500",
-    button: "bg-green-600 hover:bg-green-700",
-    glow: "bg-green-600",
-  },
-};
-
 export default function TopFreelancers() {
   return (
-    <section className="relative max-w-7xl mx-auto px-8 py-20 overflow-hidden">
+    <section className="max-w-7xl mx-auto px-8 py-20">
 
-      {/* Background Glow */}
-
-      <motion.div
-        animate={{
-          x: [0, 80, 0],
-          opacity: [0.1, 0.25, 0.1],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-        }}
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 w-96 h-96 bg-blue-600 blur-[140px] rounded-full pointer-events-none"
-      />
-
-      {/* Heading */}
-
-      <motion.div
-        initial={{
-          opacity: 0,
-          y: 40,
-        }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-        }}
-        viewport={{
-          once: true,
-        }}
-        transition={{
-          duration: 0.7,
-        }}
-        className="relative z-10 text-center mb-12"
+      <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-4xl font-bold text-center mb-12"
       >
-        <div className="flex justify-center items-center gap-2">
-          <Sparkles className="text-yellow-400" size={24} />
+        Top Freelancers ⭐
+      </motion.h2>
 
-          <h2 className="text-4xl font-bold">
-            Top Freelancers
-          </h2>
+      <div className="grid md:grid-cols-3 gap-8">
 
-          <Sparkles className="text-yellow-400" size={24} />
-        </div>
+        {freelancers.map((freelancer, index) => (
 
-        <p className="text-gray-400 mt-3">
-          Connect with talented students and get your work done.
-        </p>
-      </motion.div>
+          <motion.div
+            key={freelancer.name}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.15 }}
+            whileHover={{ y: -12, scale: 1.03 }}
+            className="bg-white/10 backdrop-blur-md border border-gray-800 rounded-3xl p-8 text-center"
+          >
 
-      {/* Cards */}
-
-      <div className="relative z-10 grid md:grid-cols-3 gap-8">
-
-        {freelancers.map((freelancer, index) => {
-          const colors =
-            colorClasses[
-              freelancer.color as keyof typeof colorClasses
-            ];
-
-          return (
-            <motion.div
-              key={freelancer.name}
-              initial={{
-                opacity: 0,
-                y: 60,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: true,
-                amount: 0.3,
-              }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.15,
-              }}
-              whileHover={{
-                y: -14,
-                scale: 1.03,
-              }}
-              className="group relative bg-white/10 backdrop-blur-xl border border-gray-800 rounded-3xl p-8 text-center hover:border-blue-500 transition-all duration-300 overflow-hidden"
+            <div
+              className={`w-24 h-24 rounded-full ${freelancer.color} mx-auto flex items-center justify-center text-3xl font-bold`}
             >
+              {freelancer.initial}
+            </div>
 
-              {/* Glow */}
+            <h3 className="text-2xl font-bold mt-5">
+              {freelancer.name}
+            </h3>
 
-              <div
-                className={`absolute -top-20 left-1/2 -translate-x-1/2 w-40 h-40 ${colors.glow} opacity-0 group-hover:opacity-20 blur-3xl transition duration-500`}
-              />
+            <p className="text-gray-400 mt-2">
+              {freelancer.role}
+            </p>
 
-              {/* Badge */}
+            <div className="flex justify-center items-center gap-2 mt-4 text-yellow-400">
+              <Star size={18} fill="currentColor" />
+              {freelancer.rating}
+            </div>
 
-              <div className="absolute top-5 right-5 text-xs bg-white/10 px-3 py-1 rounded-full text-gray-300">
-                {freelancer.badge}
-              </div>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-6 bg-blue-600 px-6 py-3 rounded-xl"
+            >
+              Hire Now
+            </motion.button>
 
-              {/* Avatar */}
+          </motion.div>
 
-              <div className="relative mx-auto w-28 h-28 flex items-center justify-center">
-
-                <motion.div
-                  animate={{
-                    rotate: 360,
-                  }}
-                  transition={{
-                    duration: 12,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className={`absolute inset-0 rounded-full border-2 border-dashed ${colors.border} opacity-60`}
-                />
-
-                <motion.div
-                  whileHover={{
-                    scale: 1.15,
-                  }}
-                  className={`relative w-24 h-24 rounded-full ${colors.bg} flex items-center justify-center text-3xl font-bold shadow-xl`}
-                >
-                  {freelancer.initial}
-                </motion.div>
-
-              </div>
-
-              {/* Name */}
-
-              <h3 className="text-2xl font-bold mt-5">
-                {freelancer.name}
-              </h3>
-
-              <p className="text-gray-400 mt-2">
-                {freelancer.role}
-              </p>
-
-              {/* Rating */}
-
-              <motion.div
-                whileHover={{
-                  scale: 1.1,
-                }}
-                className="flex justify-center items-center gap-2 mt-4 text-yellow-400"
-              >
-
-                <motion.div
-                  animate={{
-                    rotate: [0, 15, -15, 0],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                  }}
-                >
-                  <Star size={18} fill="currentColor" />
-                </motion.div>
-
-                {freelancer.rating}
-
-              </motion.div>
-
-              {/* Button */}
-
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                }}
-                whileTap={{
-                  scale: 0.95,
-                }}
-                className={`mt-6 ${colors.button} px-6 py-3 rounded-xl transition flex items-center gap-2 mx-auto`}
-              >
-                Hire Now
-                <ArrowUpRight size={18} />
-              </motion.button>
-
-            </motion.div>
-          );
-        })}
+        ))}
 
       </div>
 
