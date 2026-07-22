@@ -9,7 +9,7 @@ import Features from "@/components/Features";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-blue-950 text-white">
+    <main className="min-h-screen overflow-hidden bg-gradient-to-br from-black via-gray-900 to-blue-950 text-white">
       <Navbar />
       <Hero />
       <Features />
@@ -18,6 +18,6 @@ export default function Home() {
       <TopFreelancers />
       <Testimonials />
       <Footer />
-    </div>
+    </main>
   );
 }
