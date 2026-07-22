@@ -152,63 +152,39 @@ But many students struggle to find a platform where they can showcase their skil
 
 > The DMA platform is built with a modern dark interface, glassmorphism components, animated interactions, and a student-focused user experience.
 
-### 🏠 Home Page
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/Deepak1Gautam/dma/main/public/home-page.png" width="300">
+      <br>
+      <strong>🏠 Home Page</strong>
+    </td>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/Deepak1Gautam/dma/main/public/marketplace.png" width="300">
+      <br>
+      <strong>💼 Marketplace</strong>
+    </td>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/Deepak1Gautam/dma/main/public/DASHBOARD.png" width="300">
+      <br>
+      <strong>📊 Dashboard</strong>
+    </td>
+  </tr>
 
-<p align="center">
-  <img
-    src="https://raw.githubusercontent.com/Deepak1Gautam/dma/main/public/home-page.png"
-    alt="DMA Home Page"
-    width="90%"
-  />
-</p>
-
----
-
-### 💼 Marketplace
-
-<p align="center">
-  <img
-    src="https://raw.githubusercontent.com/Deepak1Gautam/dma/main/public/marketplace.png"
-    alt="DMA Marketplace"
-    width="90%"
-  />
-</p>
-
----
-
-### 📊 Dashboard
-
-<p align="center">
-  <img
-    src="https://raw.githubusercontent.com/Deepak1Gautam/dma/main/public/DASHBOARD.png"
-    alt="DMA Dashboard"
-    width="90%"
-  />
-</p>
-
----
-
-### ✨ Features
-
-<p align="center">
-  <img
-    src="https://raw.githubusercontent.com/Deepak1Gautam/dma/main/public/features.png"
-    alt="DMA Features"
-    width="90%"
-  />
-</p>
-
----
-
-### 👤 Profile
-
-<p align="center">
-  <img
-    src="https://raw.githubusercontent.com/Deepak1Gautam/dma/main/public/profile.png"
-    alt="DMA Profile"
-    width="90%"
-  />
-</p>
+  <tr>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/Deepak1Gautam/dma/main/public/features.png" width="300">
+      <br>
+      <strong>✨ Features</strong>
+    </td>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/Deepak1Gautam/dma/main/public/profile.png" width="300">
+      <br>
+      <strong>👤 Profile</strong>
+    </td>
+    <td></td>
+  </tr>
+</table>
 
 ## 🚀 Getting Started
 
