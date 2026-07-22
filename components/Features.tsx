@@ -1,3 +1,5 @@
+"use client";
+
 import {
   GraduationCap,
   Palette,
@@ -7,63 +9,154 @@ import {
   MapPin,
 } from "lucide-react";
 
+import { motion } from "framer-motion";
+
+const features = [
+  {
+    icon: CodeXml,
+    title: "Freelancing",
+    description: "Coding, PPT, Design & Projects.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Tutoring",
+    description: "Learn from talented students.",
+  },
+  {
+    icon: Palette,
+    title: "Art Commission",
+    description: "Hire artists for creative work.",
+  },
+  {
+    icon: MessageCircle,
+    title: "Live Chat",
+    description: "Talk directly with clients.",
+  },
+  {
+    icon: Users,
+    title: "Campus Community",
+    description: "College groups and discussions.",
+  },
+  {
+    icon: MapPin,
+    title: "Nearby Students",
+    description: "Find students near your campus.",
+  },
+];
+
 export default function Features() {
   return (
-    <section className="px-8 py-20 max-w-7xl mx-auto">
+    <section className="relative px-8 py-20 max-w-7xl mx-auto">
 
-      <h2 className="text-4xl font-bold text-center mb-12">
+      {/* Background Glow */}
+
+      <motion.div
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.15, 0.3, 0.15],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+        }}
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600 blur-[140px] rounded-full pointer-events-none"
+      />
+
+      {/* Heading */}
+
+      <motion.h2
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+        className="relative z-10 text-4xl font-bold text-center mb-12"
+      >
         Everything Students Need
-      </h2>
+      </motion.h2>
 
-      <div className="grid md:grid-cols-3 gap-8">
+      {/* Cards */}
 
-        <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-gray-800 hover:scale-105 transition duration-300">
-          <CodeXml size={40} className="text-blue-400" />
-          <h3 className="text-xl font-bold mt-4">Freelancing</h3>
-          <p className="text-gray-400 mt-2">
-            Coding, PPT, Design & Projects.
-          </p>
-        </div>
+      <div className="relative z-10 grid md:grid-cols-3 gap-8">
 
-        <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-gray-800 hover:scale-105 transition duration-300">
-          <GraduationCap size={40} className="text-blue-400" />
-          <h3 className="text-xl font-bold mt-4">Tutoring</h3>
-          <p className="text-gray-400 mt-2">
-            Learn from talented students.
-          </p>
-        </div>
+        {features.map((feature, index) => {
+          const Icon = feature.icon;
 
-        <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-gray-800 hover:scale-105 transition duration-300">
-          <Palette size={40} className="text-blue-400" />
-          <h3 className="text-xl font-bold mt-4">Art Commission</h3>
-          <p className="text-gray-400 mt-2">
-            Hire artists for creative work.
-          </p>
-        </div>
+          return (
+            <motion.div
+              key={feature.title}
+              initial={{
+                opacity: 0,
+                y: 60,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+                amount: 0.2,
+              }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+              }}
+              whileHover={{
+                y: -12,
+                scale: 1.03,
+                rotateX: 4,
+                rotateY: -4,
+              }}
+              className="group relative bg-white/10 backdrop-blur-xl p-8 rounded-2xl border border-gray-800 hover:border-blue-500/60 transition-all duration-300 overflow-hidden"
+            >
 
-        <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-gray-800 hover:scale-105 transition duration-300">
-          <MessageCircle size={40} className="text-blue-400" />
-          <h3 className="text-xl font-bold mt-4">Live Chat</h3>
-          <p className="text-gray-400 mt-2">
-            Talk directly with clients.
-          </p>
-        </div>
+              {/* Hover Glow */}
 
-        <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-gray-800 hover:scale-105 transition duration-300">
-          <Users size={40} className="text-blue-400" />
-          <h3 className="text-xl font-bold mt-4">Campus Community</h3>
-          <p className="text-gray-400 mt-2">
-            College groups and discussions.
-          </p>
-        </div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-purple-600/10 opacity-0 group-hover:opacity-100 transition duration-500" />
 
-        <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-gray-800 hover:scale-105 transition duration-300">
-          <MapPin size={40} className="text-blue-400" />
-          <h3 className="text-xl font-bold mt-4">Nearby Students</h3>
-          <p className="text-gray-400 mt-2">
-            Find students near your campus.
-          </p>
-        </div>
+              {/* Animated Icon */}
+
+              <motion.div
+                whileHover={{
+                  rotate: 360,
+                  scale: 1.15,
+                }}
+                transition={{
+                  duration: 0.6,
+                }}
+                className="relative z-10 w-fit"
+              >
+                <Icon
+                  size={40}
+                  className="text-blue-400 group-hover:text-blue-300 transition"
+                />
+              </motion.div>
+
+              {/* Content */}
+
+              <div className="relative z-10">
+
+                <h3 className="text-xl font-bold mt-4">
+                  {feature.title}
+                </h3>
+
+                <p className="text-gray-400 mt-2">
+                  {feature.description}
+                </p>
+
+              </div>
+
+              {/* Bottom Line */}
+
+              <motion.div
+                initial={{ width: 0 }}
+                whileHover={{ width: "100%" }}
+                transition={{ duration: 0.4 }}
+                className="absolute bottom-0 left-0 h-1 bg-blue-500"
+              />
+
+            </motion.div>
+          );
+        })}
 
       </div>
 
